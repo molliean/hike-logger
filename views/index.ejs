@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
   <% if (user) { %>
-    <h1>Welcome to the app, <%= user.username %>!</h1>
+    <h1>Welcome to your Hike Log, <%= user.username %>!</h1>
     <p>
       <a href="/auth/sign-out">Sign out</a>
     </p>
-  <% } else { %>
-    <h1>Welcome to the app, guest.</h1>
-    <p>
-      <a href="/auth/sign-up">Sign up</a> or
-      <a href="/auth/sign-in">Sign in</a>.
-    </p>
-  <% } %>
-  <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
+    <% } else { %>
+      <h1>Hike Logger</h1>
+
+      <% } %>
+        <div>
+          <a class="auth-buttons" href="/auth/sign-in">Log In</a>
+          <a class="auth-buttons" href="/auth/sign-up">Create Account</a>
+        </div>
+        <img id="cover-image"
+          src="https://images.unsplash.com/photo-1609261465412-a9209a43b5b0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="hiking trail with snow">
+
 </body>
+
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Log a New Hike</title>
+</head>
+
+<body>
+	<%- include('../partials/_navbar.ejs') %>	
+	<h1>Log a New Hike</h1>
+<div class="form-container">
+    <form action="/hikes" method="POST">
+        <label for="trailName">Trail Name:</label>
+        <input type="text" name="trailName" id="trailName" required />
+        <label for="dateHiked">Date:</label>
+        <input type="date" name="dateHiked" id="dateHiked" />
+        <label for="favorite">Add to Favorites?</label>
+        <input type="checkbox" name="favorite" id="favorite">
+        <button type="submit">Log Hike</button>
+    </form>
+</div>
+</body>
+
+</html>
