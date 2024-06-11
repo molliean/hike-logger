@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Trip: <%= trip.tripName %>
+    </title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+        <h1>Edit Trip</h1>
+        <h2>
+            <%= trip.tripName %>
+        </h2>
+        <div class="form-container">
+            <form action="/trips/<%= trip._id %>?_method=PUT" method="POST">
+                <label for="tripName">Trip Name:</label>
+                <input type="text" name="tripName" id="tripName" value="<%= trip.tripName %>" required />
+                <label for="description">Description:</label>
+                <textarea name="description" id="description"><%= trip.description %></textarea>
+                <label for="tripDuration">Trip Duration:</label>
+                <input type="text" name="tripDuration" id="tripDuration" value="<%= trip.tripDuration %>" />
+                <label for="hikes">Hikes:</label>
+                <select name="hikes" id="hikes" value="<%= trip.hikes %>" multiple>
+                    <% hikes.forEach(hike=> { %>
+                        <option value="<%= hike._id %>">
+                            <%= hike.trailName %>
+                        </option>
+                        <% }) %>
+                </select>
+                <button type="submit">Update Trip</button>
+            </form>
+        </div>
+</body>
+
+</html>

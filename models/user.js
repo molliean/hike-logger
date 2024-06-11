@@ -8,6 +8,23 @@ const hikeLogSchema = new mongoose.Schema({
   dateHiked: {
     type: Date,
   },
+  location: {
+    type: String,
+  },
+  distance: {
+    type: Number,
+  },
+  elevationGain: {
+    type: Number,
+  },
+  difficulty: {
+    type: String,
+    enum: ['easy', 'moderate', 'hard'],
+  },
+  routeType: {
+    type: String,
+    enum: ['loop', 'out and back'],
+  },
   favorite: {
     type: Boolean,
   },
@@ -23,12 +40,13 @@ const userSchema = mongoose.Schema({
     required: true,
   },
   hikeLog: [hikeLogSchema],
+  trips: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Trip' }],
 });
 
 userSchema.set('toObject', {
   transform: (doc, ret) => {
-    delete ret.password; // deletes the password
-    return ret; // then just returns the document
+    delete ret.password;
+    return ret;
   }
 })
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Trip</title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+        <h1>New Trip</h1>
+        <div class="form-container">
+            <form action="/trips" method="POST">
+                <label for="tripName">Trip Name:</label>
+                <input type="text" name="tripName" id="tripName" required />
+                <label for="description">Description:</label>
+                <textarea name="description" id="description"></textarea>
+                <label for="tripDuration">Trip Duration:</label>
+                <input type="text" name="tripDuration" id="tripDuration" />
+                <label for="hikes">Hikes:</label>
+                <select name="hikes" id="hikes" multiple>
+                    <% hikes.forEach(hike=> { %>
+                        <option value="<%= hike._id %>">
+                            <%= hike.trailName %>
+                        </option>
+                        <% }) %>
+                </select>
+                <button type="submit">Add Trip</button>
+            </form>
+        </div>
+</body>
+
+</html>

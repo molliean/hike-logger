@@ -14,7 +14,8 @@ const passUserToView = require('./middleware/pass-user-to-view.js')
 
 const authController = require('./controllers/auth.js');
 const hikesController = require('./controllers/hikes.js');
-const trailsController = require('./controllers/trails.js');
+const tripsController = require('./controllers/trips.js');
+const homeController = require('./controllers/home.js');
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -41,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
-  if(req.session.user){
+  if (req.session.user) {
     res.redirect('/hikes');
   } else {
     res.render('index.ejs', {
@@ -52,7 +53,8 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authController);
 app.use('/hikes', isSignedIn, hikesController);
-app.use('/trails', isSignedIn, trailsController)
+app.use('/trips', isSignedIn, tripsController);
+app.use('/home', isSignedIn, homeController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

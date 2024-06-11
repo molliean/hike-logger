@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title><%= hike.trailName %></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= hike.trailName %>
+  </title>
 </head>
 
 <body>
-	<%- include('../partials/_navbar.ejs') %>	
-	<h1><%= hike.trailName %></h1>
-
+  <%- include('../partials/_navbar.ejs') %>
+    <h2>
+      <%= hike.trailName %>
+    </h2>
+    <p>Hiked on <%= hike.dateHiked %>
+    </p>
+    <ul>
+      <li>Location: <%= hike.location %>
+      </li>
+      <li>Distance: <%= hike.distance %> miles</li>
+      <li>Elevation Gain: <%= hike.elevationGain %> feet</li>
+      <li>Difficulty: <%= hike.difficulty %>
+      </li>
+      <li>Route Type: <%= hike.routeType %>
+      </li>
+      <li>Favorite: <%= hike.favorite %>
+      </li>
+    </ul>
     <a href="/hikes/<%= hike._id %>/edit">Edit Hike Info</a>
-    <form
-    action="/hikes/<%= hike._id %>?_method=DELETE"
-    method="POST" >
-    <button type="submit">Delete this hike</button>
-  </form>
+    <form action="/hikes/<%= hike._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete this hike</button>
+    </form>
 </body>
 
 </html>

@@ -16,6 +16,7 @@ router.get('/', async function index(req, res) {
 
 // create route: first GET form, then POST form
 router.get('/new', async function newHike(req, res) {
+    const user = await User.findById(req.session.user._id).populate('hikeLog');
     res.render('hikes/new.ejs');
 });
 
@@ -23,7 +24,12 @@ router.post('/', async function create(req, res) {
     const hike = {
         trailName: req.body.trailName,
         dateHiked: req.body.dateHiked,
-        favorite: req.body.favorite === 'on'
+        location: req.body.location,
+        distance: req.body.distance,
+        elevationGain: req.body.elevationGain,
+        difficulty: req.body.difficulty,
+        routeType: req.body.routeType,
+        favorite: req.body.favorite === 'on',
     };
     console.log('Form data:', req.body); // Log form data to debug
 
@@ -70,6 +76,11 @@ router.put('/:id', async function update(req, res) {
         const hike = user.hikeLog.id(req.params.id);
         hike.trailName = req.body.trailName;
         hike.dateHiked = req.body.dateHiked;
+        hike.location = req.body.location;
+        hike.distance = req.body.distance;
+        hike.elevationGain = req.body.elevationGain;
+        hike.difficulty = req.body.difficulty;
+        hike.routeType = req.body.routeType;
         hike.favorite = req.body.favorite === 'on';
         await user.save();
         res.redirect('/hikes');
@@ -81,15 +92,15 @@ router.put('/:id', async function update(req, res) {
 
 // delete route
 router.delete('/:id', async function deleteHike(req, res) {
-     try {
-         const user = await User.findById(req.session.user._id);
-+        user.hikeLog.id(req.params.id).deleteOne();
-         await user.save();
-         res.redirect('/hikes');
-     } catch (error) {
-         console.log(error);
-         res.redirect('/');
-     }
+    try {
+        const user = await User.findById(req.session.user._id);
+        +        user.hikeLog.id(req.params.id).deleteOne();
+        await user.save();
+        res.redirect('/hikes');
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
 });
 
 

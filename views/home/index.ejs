@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+    <h1>Welcome, <%= user.username %>
+    </h1>
+    <h2>Dashboard</h2>
+    <h3>My Hikes</h3>
+    <ul>
+      <% hikes.forEach(hike=> { %>
+        <li><a href="/hikes/<%= hike._id %>">
+            <%= hike.trailName %> on <%= new Date(hike.dateHiked).toDateString() %>
+          </a></li>
+        <% }) %>
+    </ul>
+    <h3>My Trips</h3>
+    <ul>
+      <% trips.forEach(trip=> { %>
+        <li><a href="/trips/<%= trip._id %>">
+            <%= trip.tripName %>
+          </a></li>
+        <% }) %>
+    </ul>
+</body>
+
+</html>

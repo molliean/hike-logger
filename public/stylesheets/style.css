@@ -3,12 +3,12 @@
 
 body {
     font-family: "EB Garamond", serif;
-    background: linear-gradient(to left top, #F29191, #F2DAD8);   
+    background: linear-gradient(to left top, #F29191, #F2DAD8);
     background-repeat: no-repeat;
     background-size: cover;
     color: #590202;
-    text-align: center; 
-    height: 100vh;   
+    text-align: center;
+    height: 100vh;
 }
 
 h1 {
@@ -21,6 +21,11 @@ nav {
     gap: 20px;
     border-bottom: 1px solid #590202;
     padding-bottom: 20px;
+    background-color: #590202;
+}
+
+nav a {
+    color: #F2DAD8;
 }
 
 .form-container {

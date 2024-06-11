@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,14 +8,17 @@
 </head>
 
 <body>
-	<%- include('../partials/_navbar.ejs') %>	
-	<h1>My Hikes</h1>
-<ul>
-  <% hikes.forEach(hike => { %>
-    <li><a href="/hikes/<%= hike._id %>"><%= hike.trailName %> </a> on <%= new Date(hike.dateHiked).toDateString() %></li>
-  <% }) %>
-</ul>
-    <a href="/hikes/new">Log a New Hike</a>
+	<%- include('../partials/_navbar.ejs') %>
+		<h1>My Hikes</h1>
+		<ul>
+			<% hikes.forEach(hike=> { %>
+				<li><a href="/hikes/<%= hike._id %>">
+						<%= hike.trailName %>
+					</a> on <%= new Date(hike.dateHiked).toDateString() %>
+				</li>
+				<% }) %>
+		</ul>
+		<a href="/hikes/new">Log a New Hike</a>
 </body>
 
 </html>

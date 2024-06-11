@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip: <%= trip.tripName %>
+    </title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+        <h2>Trip: <%= trip.tripName %>
+        </h2>
+        <p>Description: <%= trip.description %>
+        </p>
+        <p>Trip Duration: <%= trip.tripDuration %>
+        </p>
+        <p>Hikes: <%= trip.hikes %>
+        </p>
+        <a href="/trips/<%= trip._id %>/edit">Edit Trip</a>
+        <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Trip</button>
+        </form>
+</body>
+
+</html>

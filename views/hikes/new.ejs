@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Log a New Hike</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log a New Hike</title>
 </head>
 
 <body>
-	<%- include('../partials/_navbar.ejs') %>	
-	<h1>Log a New Hike</h1>
-<div class="form-container">
-    <form action="/hikes" method="POST">
-        <label for="trailName">Trail Name:</label>
-        <input type="text" name="trailName" id="trailName" required />
-        <label for="dateHiked">Date:</label>
-        <input type="date" name="dateHiked" id="dateHiked" />
-        <label for="favorite">Add to Favorites?</label>
-        <input type="checkbox" name="favorite" id="favorite">
-        <button type="submit">Log Hike</button>
-    </form>
-</div>
+    <%- include('../partials/_navbar.ejs') %>
+        <h1>Log a New Hike</h1>
+        <div class="form-container">
+            <form action="/hikes" method="POST">
+                <label for="trailName">Trail Name:</label>
+                <input type="text" name="trailName" id="trailName" required />
+                <label for="dateHiked">Date Hiked:</label>
+                <input type="date" name="dateHiked" id="dateHiked" />
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location" />
+                <label for="distance">Distance (mi):</label>
+                <input type="number" name="distance" id="distance" />
+                <label for="elevationGain">Elevation Gain (ft):</label>
+                <input type="number" name="elevationGain" id="elevationGain" />
+                <label for="difficulty">Difficulty:</label>
+                <select name="difficulty" id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <label for="routeType">Route Type:</label>
+                <select name="routeType" id="routeType">
+                    <option value="loop">Loop</option>
+                    <option value="out and back">Out and Back</option>
+                </select>
+                <label for="favorite">Add to Favorites?</label>
+                <input type="checkbox" name="favorite" id="favorite">
+                <%= if (returnTo) { %>
+                    <input type="hidden" name="returnTo" value="<%= returnTo %>">
+                    <% } %>
+                        <button type="submit">Log Hike</button>
+            </form>
+        </div>
 </body>
 
 </html>
