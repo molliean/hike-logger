@@ -29,11 +29,12 @@ router.get('/new', async function newTrip(req, res) {
 router.post('/', async function create(req, res) {
     try {
         const user = await User.findById(req.session.user._id);
+        const hikes = Array.isArray(req.body.hikes) ? req.body.hikes.map(id => mongoose.Types.ObjectId(id)) : [mongoose.Types.ObjectId(req.body.hikes)];
         const trip = new Trip({
             tripName: req.body.tripName,
             description: req.body.description,
             tripDuration: req.body.tripDuration,
-            hikes: req.body.hikes || [],
+            hikes: hikes,
             user: req.session.user._id,
         });
         console.log(trip);
@@ -52,7 +53,8 @@ router.get('/:id', async function show(req, res) {
     try {
         const user = await User.findById(req.session.user._id).populate('hikeLog');
         const trip = await Trip.findById(req.params.id);
-        res.render('trips/show.ejs', { hikes: user.hikeLog, trip });
+        const hikes = user.hikeLog.filter(hike => trip.hikes.includes(hike._id));
+        res.render('trips/show.ejs', { hikes, trip });
     } catch (error) {
         console.log(error);
         res.redirect('/');

@@ -19,11 +19,11 @@
         </p>
         <p>Hikes:</p>
         <ul>
-            <% trip.hikes.forEach(hike => { %>
-              <li>
-                <%= hike.trailName %>
-              </li>
-            <% }) %>
+          <% if (hikes.length > 0) { %>
+             <% hikes.forEach(hike => { %>
+               <li><%= hike.trailName %></li>
+             <% }); %>
+          <% } %>
           </ul>
         <a href="/trips/<%= trip._id %>/edit">Edit Trip</a>
         <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">

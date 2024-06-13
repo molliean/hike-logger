@@ -29,7 +29,7 @@ router.post('/', async function create(req, res) {
         elevationGain: req.body.elevationGain,
         difficulty: req.body.difficulty,
         routeType: req.body.routeType,
-        favorite: req.body.favorite === 'on',
+        favorite: req.body.favorite === 'true',
     };
     console.log('Form data:', req.body); // Log form data to debug
 
@@ -81,7 +81,7 @@ router.put('/:id', async function update(req, res) {
         hike.elevationGain = req.body.elevationGain;
         hike.difficulty = req.body.difficulty;
         hike.routeType = req.body.routeType;
-        hike.favorite = req.body.favorite === 'on';
+        hike.favorite = req.body.favorite === 'true';
         await user.save();
         res.redirect('/hikes/' + req.params.id);
     } catch (error) {

@@ -14,19 +14,21 @@
     <h2>
       <%= hike.trailName %>
     </h2>
-    <p>Hiked on <%= hike.dateHiked %>
+    <p>Hiked on <%= new Date(hike.dateHiked).toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: '2-digit'}) %>
     </p>
     <ul>
       <li>Location: <%= hike.location %>
       </li>
       <li>Distance: <%= hike.distance %> miles</li>
       <li>Elevation Gain: <%= hike.elevationGain %> feet</li>
-      <li>Difficulty: <%= hike.difficulty %>
+      <li>Difficulty: <%= hike.difficulty.charAt(0).toUpperCase() + hike.difficulty.slice(1) %>
       </li>
-      <li>Route Type: <%= hike.routeType %>
+      <li>Route Type: <%= hike.routeType.charAt(0).toUpperCase() + hike.routeType.slice(1) %>
       </li>
-      <li>Favorite: <%= hike.favorite %>
-      </li>
+
+      <% if (hike.favorite) { %>
+       <li>&#9733; Added to Favorites</li>
+      <% } %></li>
     </ul>
     <a href="/hikes/<%= hike._id %>/edit">Edit Hike Info</a>
     <form action="/hikes/<%= hike._id %>?_method=DELETE" method="POST">
