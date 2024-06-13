@@ -83,7 +83,7 @@ router.put('/:id', async function update(req, res) {
         hike.routeType = req.body.routeType;
         hike.favorite = req.body.favorite === 'on';
         await user.save();
-        res.redirect('/hikes');
+        res.redirect('/hikes/' + req.params.id);
     } catch (error) {
         console.log(error);
         res.redirect('/');

@@ -12,15 +12,22 @@
   <%- include('../partials/_navbar.ejs') %>
     <h1>Welcome, <%= user.username %>
     </h1>
-    <h2>Dashboard</h2>
+    <h2>My Dashboard</h2>
+    <div class="dashboard-container">
+    <div class="dashboard-parent">
+      <div class="dashboard-child">
     <h3>My Hikes</h3>
     <ul>
       <% hikes.forEach(hike=> { %>
         <li><a href="/hikes/<%= hike._id %>">
-            <%= hike.trailName %> on <%= new Date(hike.dateHiked).toDateString() %>
+            <%= hike.trailName %>
           </a></li>
         <% }) %>
     </ul>
+  </div>
+  </div>
+  <div class="dashboard-parent">
+    <div class="dashboard-child">
     <h3>My Trips</h3>
     <ul>
       <% trips.forEach(trip=> { %>
@@ -29,6 +36,9 @@
           </a></li>
         <% }) %>
     </ul>
+  </div>
+  </div>
+</div>
 </body>
 
 </html>

@@ -3,6 +3,7 @@ const router = express.Router();
 const Trip = require('../models/trip.js');
 const User = require('../models/user.js');
 
+
 // index route
 router.get('/', async function index(req, res) {
     try {

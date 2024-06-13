@@ -3,10 +3,10 @@
 
 body {
     font-family: "EB Garamond", serif;
-    background: linear-gradient(to left top, #F29191, #F2DAD8);
+    background: linear-gradient(to left top, #6ab387, #a6cef7);
     background-repeat: no-repeat;
     background-size: cover;
-    color: #590202;
+    color: #004127;
     text-align: center;
     height: 100vh;
 }
@@ -19,13 +19,51 @@ h1 {
 nav {
     display: flex;
     gap: 20px;
-    border-bottom: 1px solid #590202;
-    padding-bottom: 20px;
-    background-color: #590202;
+    border-bottom: 1px solid #004127;
+    padding: 20px;
+    justify-content: flex-end;
 }
 
 nav a {
-    color: #F2DAD8;
+    color: #004127;
+    /* background-color: #a6cef7; */
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px
+}
+
+.dashboard-parent {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #004127;
+    border-radius: 20px;
+    width: 20%;
+}
+
+.dashboard-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 20px; */
+    padding: 10px;
+    margin: 20px;
+    
+} 
+
+.dashboard-child ul {
+    padding-left: 0;
+}
+
+.dashboard-child li {
+    list-style-type:circle;
 }
 
 .form-container {
@@ -44,7 +82,7 @@ form {
     margin-top: 20px;
     max-width: 300px;
     align-items: center;
-    border: 1px solid #590202;
+    border: 1px solid #004127;
     border-radius: 10px;
     padding: 30px;
 }
@@ -52,7 +90,7 @@ form {
 form input {
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #590202;
+    border: 1px solid #004127;
 }
 
 #cover-image {
@@ -61,7 +99,7 @@ form input {
 }
 
 .auth-buttons {
-    border: 1px solid #590202;
+    border: 1px solid #004127;
     padding: 15px;
     margin: 10px;
     font-family: "EB Garamond", serif;

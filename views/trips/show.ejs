@@ -17,8 +17,14 @@
         </p>
         <p>Trip Duration: <%= trip.tripDuration %>
         </p>
-        <p>Hikes: <%= trip.hikes %>
-        </p>
+        <p>Hikes:</p>
+        <ul>
+            <% trip.hikes.forEach(hike => { %>
+              <li>
+                <%= hike.trailName %>
+              </li>
+            <% }) %>
+          </ul>
         <a href="/trips/<%= trip._id %>/edit">Edit Trip</a>
         <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete Trip</button>
