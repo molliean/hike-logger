@@ -9,6 +9,7 @@ body {
     text-align: center;
     height: 100vh;
     font-family: Merriweather, serif;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -29,15 +30,15 @@ h1 {
     justify-content: center;
     align-items: stretch; 
     align-items: center;
-    margin-top: 50px;
+    margin-top: 100px;
     padding: 0;
-    width: 70vw;
+    width: 64vw;
     border: 5px solid #8C7A1C
 }
 
 .first-tile-child, .second-tile-child {
     background-color: #94A69F;
-    width: 35vw;
+    width: 32vw;
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -49,7 +50,7 @@ h1 {
 
 .first-tile-child {
     background-color: #94A69F;
-    width: 35vw;
+    width: 32vw;
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -58,7 +59,7 @@ h1 {
 }
 
 .second-tile-child {
-    width: 35vw;
+    width: 32vw;
     height: 350px;
     justify-content: center;
 }
@@ -72,11 +73,18 @@ h1 {
 
 nav {
     display: flex;
+    align-items: center;
     gap: 20px;
     border-bottom: 1px solid #004127;
-    padding: 20px;
-    justify-content: flex-end;
+    padding: 5px;
+    justify-content: space-between;
     background-color: #594B20;
+    top: 0;
+}
+
+nav .treelogo img {
+    height: 60px;
+    padding: 5px 15px;
 }
 
 nav a {
@@ -94,10 +102,6 @@ nav a:link {
 nav a:visited {
     color: #F2F0D5;
   }
-
-nav .treelogo {
-    z-index: 1;
-}
 
 .dashboard-container {
     display: flex;
@@ -184,9 +188,11 @@ form {
     margin-top: 20px;
     max-width: 300px;
     align-items: center;
-    border: 1px solid #004127;
-    border-radius: 10px;
-    padding: 30px;
+    border: 3px solid #8C7A1C;
+    background-color: #94A69F;
+    padding: 40px;
+    color:#594B20;
+    font-weight: 600;
 }
 
 form input {
@@ -208,6 +214,7 @@ li .hike-list {
     font-family: Merriweather, serif;
     border-radius: 5px;
     width: 30%;
+    background-color: #F2F0D5;
 }
 
  .delete-button {
