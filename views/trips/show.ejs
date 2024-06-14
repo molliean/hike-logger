@@ -10,25 +10,30 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-
+    <main> 
+      <div class="card-parent">	
+        <div class="card-child">
         <h2>Trip: <%= trip.tripName %>
         </h2>
-        <p>Description: <%= trip.description %>
+        <p><strong>Description: </strong><%= trip.description %>
         </p>
-        <p>Trip Duration: <%= trip.tripDuration %>
+        <p><strong>Trip Duration: </strong><%= trip.tripDuration %>
         </p>
-        <p>Hikes:</p>
+        <p><strong>Hikes: </strong></p>
         <ul>
           <% if (hikes.length > 0) { %>
              <% hikes.forEach(hike => { %>
-               <li><%= hike.trailName %></li>
+               <li class="hike-list"><%= hike.trailName %></li>
              <% }); %>
           <% } %>
           </ul>
         <a href="/trips/<%= trip._id %>/edit">Edit Trip</a>
-        <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
+        <form class="delete-button" action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete Trip</button>
         </form>
+        </div>
+      </div>
+    </main>
 </body>
 
 </html>

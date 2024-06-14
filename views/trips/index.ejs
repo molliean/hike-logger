@@ -9,15 +9,21 @@
 
 <body>
 	<%- include('../partials/_navbar.ejs') %>
-		<h1>My Trips</h1>
+	<main>
+	<div class="card-parent">
+		<div class="card-child">
+	<h2>My Trips</h2>
 		<ul>
 			<% trips.forEach(trip=> { %>
 				<li><a href="/trips/<%= trip._id %>">
 						<%= trip.tripName %>
 					</a></li>
 				<% }) %>
-		</ul>
+		</ul> <br><br>
 		<a href="/trips/new">Add a New Trip</a>
+	</div>	
+</div>
+</main>
 </body>
 
 </html>

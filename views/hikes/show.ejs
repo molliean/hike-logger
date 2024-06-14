@@ -11,7 +11,10 @@
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-    <h2>
+  <main> 
+    <div class="card-parent">	
+      <div class="card-child">
+  <h2>
       <%= hike.trailName %>
     </h2>
     <p>Hiked on <%= new Date(hike.dateHiked).toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: '2-digit'}) %>
@@ -31,9 +34,12 @@
       <% } %></li>
     </ul>
     <a href="/hikes/<%= hike._id %>/edit">Edit Hike Info</a>
-    <form action="/hikes/<%= hike._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete this hike</button>
+    <form class="delete-button" action="/hikes/<%= hike._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete hike</button>
     </form>
+    </div>
+    </div>
+  </main> 
 </body>
 
 </html>

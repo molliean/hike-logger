@@ -13,8 +13,61 @@ body {
 
 h1 {
     font-family: Young Serif, serif;
-    font-size: 3em;
+    font-size: 2em;
     margin: 10;
+}
+
+.main-homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-tiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch; 
+    align-items: center;
+    margin-top: 50px;
+    padding: 0;
+    width: 70vw;
+    border: 5px solid #8C7A1C
+}
+
+.first-tile-child, .second-tile-child {
+    background-color: #94A69F;
+    width: 35vw;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.first-tile-child {
+    background-color: #94A69F;
+    width: 35vw;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.second-tile-child {
+    width: 35vw;
+    height: 350px;
+    justify-content: center;
+}
+
+#cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* margin-top: 40px; */
 }
 
 nav {
@@ -83,6 +136,38 @@ nav .treelogo {
     list-style-type:circle;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.card-parent {
+    display: flex;
+    justify-content: center;
+    border: 4px solid #8C7A1C;
+    width: 50%;
+    background-color: #94A69F;
+    color: #594B20;
+    margin-top: 30px;
+}
+
+.card-child {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-child li {
+    list-style-type: none;
+}
+
+.card-child a:link {
+    color: #F2F0D5
+}
+
+.card-child a:visited {
+    color: #F2F0D5
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
@@ -110,15 +195,25 @@ form input {
     border: 1px solid #004127;
 }
 
-#cover-image {
-    width: 50%;
-    margin-top: 40px;
+li .hike-list {
+    list-style-type: circle;
 }
+
+
 
 .auth-buttons {
     border: 1px solid #004127;
     padding: 15px;
     margin: 10px;
-    font-family: "EB Garamond", serif;
+    font-family: Merriweather, serif;
     border-radius: 5px;
+    width: 30%;
 }
+
+ .delete-button {
+    padding: 0px;
+    font-family: Merriweather, serif;
+    border-radius: 5px;
+    border: none;
+}
+

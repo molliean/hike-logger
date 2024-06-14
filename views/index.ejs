@@ -9,23 +9,20 @@
 </head>
 
 <body>
-  <% if (user) { %>
-    <h1>Welcome to your Hike Log, <%= user.username %>!</h1>
-    <p>
-      <a href="/auth/sign-out">Sign out</a>
-    </p>
-    <% } else { %>
-      <h1>Hike Logger</h1>
-
-      <% } %>
-        <div>
+  <main class="main-homepage">
+  <div class="welcome-tiles">
+    <div class="first-tile-child">
+    <h1>Welcome to <br> Trail Logger</h1>
           <a class="auth-buttons" href="/auth/sign-in">Log In</a>
           <a class="auth-buttons" href="/auth/sign-up">Create Account</a>
         </div>
+        <div class="second-tile-child">
         <img id="cover-image"
           src="https://images.unsplash.com/photo-1609261465412-a9209a43b5b0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="hiking trail with snow">
-
+        </div>
+      </div>
+    </main>
 </body>
 
 </html>

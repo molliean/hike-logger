@@ -20,9 +20,9 @@
                 <input type="date" name="dateHiked" id="dateHiked" value="<%= hike.dateHiked ? new Date(hike.dateHiked).toISOString().split('T')[0] : '' %>" />
                 <label for="location">Location:</label>
                 <input type="text" name="location" id="location" value="<%= hike.location %>" />
-                <label for="distance">Distance:</label>
+                <label for="distance">Distance (mi):</label>
                 <input type="number" name="distance" id="distance" value="<%= hike.distance %>" />
-                <label for="elevationGain">Elevation Gain:</label>
+                <label for="elevationGain">Elevation Gain (ft):</label>
                 <input type="number" name="elevationGain" id="elevationGain" value="<%= hike.elevationGain %>" />
                 <label for="difficulty">Difficulty:</label>
                 <select name="difficulty" id="difficulty">
