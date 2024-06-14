@@ -172,6 +172,23 @@ main {
     color: #F2F0D5
 }
 
+a {
+    color: #F2F0D5;
+    text-decoration: none;
+}
+
+/* Specific link styles for the body */
+body a {
+    color: #F2F0D5;
+}
+
+body a:link,
+body a:visited,
+body a:hover,
+body a:active {
+    color: #F2F0D5;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;

@@ -29,7 +29,11 @@ router.get('/new', async function newTrip(req, res) {
 router.post('/', async function create(req, res) {
     try {
         const user = await User.findById(req.session.user._id);
-        const hikes = Array.isArray(req.body.hikes) ? req.body.hikes.map(id => mongoose.Types.ObjectId(id)) : [mongoose.Types.ObjectId(req.body.hikes)];
+        let hikes = [];
+        if (req.body.hikes) {
+            hikes = Array.isArray(req.body.hikes) ? req.body.hikes.map(id => mongoose.Types.ObjectId(id)) : [mongoose.Types.ObjectId(req.body.hikes)];
+        }
+        // const hikes = Array.isArray(req.body.hikes) ? req.body.hikes.map(id => mongoose.Types.ObjectId(id)) : [mongoose.Types.ObjectId(req.body.hikes)];
         const trip = new Trip({
             tripName: req.body.tripName,
             description: req.body.description,
