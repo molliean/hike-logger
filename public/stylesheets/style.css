@@ -231,7 +231,7 @@ li .hike-list {
     font-family: Merriweather, serif;
     border-radius: 5px;
     width: 30%;
-    background-color: #F2F0D5;
+    /* background-color: #F2F0D5; */
 }
 
  .delete-button {

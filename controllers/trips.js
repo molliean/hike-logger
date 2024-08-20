@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Trip = require('../models/trip.js');
 const User = require('../models/user.js');
 
@@ -31,9 +32,8 @@ router.post('/', async function create(req, res) {
         const user = await User.findById(req.session.user._id);
         let hikes = [];
         if (req.body.hikes) {
-            hikes = Array.isArray(req.body.hikes) ? req.body.hikes.map(id => mongoose.Types.ObjectId(id)) : [mongoose.Types.ObjectId(req.body.hikes)];
+            hikes = Array.isArray(req.body.hikes) ? req.body.hikes.map(id => new mongoose.Types.ObjectId(id)) : [new mongoose.Types.ObjectId(req.body.hikes)];
         }
-        // const hikes = Array.isArray(req.body.hikes) ? req.body.hikes.map(id => mongoose.Types.ObjectId(id)) : [mongoose.Types.ObjectId(req.body.hikes)];
         const trip = new Trip({
             tripName: req.body.tripName,
             description: req.body.description,
